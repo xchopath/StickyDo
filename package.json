@@ -1,0 +1,38 @@
+{
+  "name": "stickydo",
+  "version": "1.0.0",
+  "description": "Sticky Simple To-Do List built with Electron",
+  "author": "Novran F.",
+  "main": "main.js",
+  "scripts": {
+    "start": "electron .",
+    "dist": "electron-builder"
+  },
+  "build": {
+    "appId": "com.stickydo.app",
+    "productName": "StickyDo",
+    "directories": {
+      "buildResources": "assets"
+    },
+    "files": [
+      "**/*"
+    ],
+    "extraResources": [
+      {
+        "from": "assets",
+        "to": "assets"
+      }
+    ],
+    "linux": {
+      "target": "AppImage"
+    },
+    "win": {
+      "target": "portable",
+      "icon": "assets/icon_256.ico"
+    }
+  },
+  "devDependencies": {
+    "electron": "^29.0.0",
+    "electron-builder": "^24.6.0"
+  }
+}

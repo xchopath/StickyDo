@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Sticky Simple To-Do List</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="title-bar">
+    <div class="left">
+      <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAABmJLR0QA/wD/AP+gvaeTAAADRUlEQVRIx+2VvW/XVRTGP8+59/f7lm9b+kJUoFDTYoho4ttiDBEXnGgYXJw6EGMIk/+AcXQykmDiQhjcnJic1A2MSdFIAukgi6WJEVtr3/t7ufcelxaRIj/ExMlnOjf35bnnPOe5F/5HD4ReCxqNBo1GFHBE0qEQQmt0dLQN0O12exLoYZPDw8MsLy9jZifAT4OWgCHgtqQv6/76VrvVptPpPGZ6IRBCGDGzj0IIrw8M9FsIYZ+ZTZnZeTN7E2BwcODxSwS8AUwAB1LKT0laiDF+7+6zwLSZ/dDtpg13f7QSnT377t344sVLSHqhlHJe0i/AErAoaQ740d0ngL5SyqW6rtnc3NxFYL1KJGlO0iww4u6H3P2lUsq0u1cmfQH+XAhhvNVq/XMN6rreIRoPIRyPMe4LIYyZ2dtm9g6Amb1lZu8B9PX1/b0GVVVR1zU55/2SXpZpMudMs9lclVhOKc2XUrYkrSFGgMPuPhNCmHf302aazzkv3q/FXQJJpJT2uvsZ4ElgBDhZSpkA3ZY0aWaTZsruPAMUd7/h7h1JBhwvpXxb13vodtNukRuNBoC5e7PZbLZa7RbBwp6c0wfA06AbwBYwCjwLfO7ul2OMuPtgKeV9SR9LupPSnwRxJ9h2ZQFaKSVCCJRSRkGS+LCu+2+ur68TY6xyTmdAk6UUqqqi2+2umdm8uz9fSrnzyF0EbEj6NOdyM8aAu+PubbPwGbAnxvhKSglJALPAMXfn4NjB3Rrci/7+GsnAXTLrIqbbrfaImfUDRyWtSMxIWnP3TQuGUAFOVFV1td1ul513alcGQ0NDbGxs0ul0XsylnAMyznfAUXc/5e7HgODOUkppoZRCMEPid6CRcq5zzrs12MHa+hohhP3uPi3p8rYfrqeUru+YaXz8MD/NzVFVVUgpPZFSPgK8BizEENbvbVVduXrl7mDq1BQrKyuY2dltwSe2y7gA3AYWgYLYi3MQOAA0gV+BWTP7xt3XH5KBMzgwoM2trVl3PwlcN7Ov3f3I9rtzFDDBGtIt4Csz+/nQ2NjWb0tLrK6u0hONRoMYY9PMXo0hVDHG3pseggd+OPfbfbsNe2Lm2rW/HCw9QGSAC59c+Fe3/k/xB9Gzcu9Ngw/kAAAAAElFTkSuQmCC" alt="icon">
+      <span>Sticky Simple To-Do List</span>
+    </div>
+    <div class="right">
+      <button onclick="minimizeApp()"><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAABmJLR0QA/wD/AP+gvaeTAAAACXBIWXMAATr1AAE69QGXCHZXAAAAVElEQVRIx+3QsQmFQBAE0LdiAReJfVqHfX6MrgDxDEQQs2+m7IuGZZhgSSm9X5yhlHLGPiLiyVhrrWGFWusxdusMmDFi+3O/ww8Tluvx3S9KKX3BDrCkFAlZYbixAAAAGXRFWHRTb2Z0d2FyZQB3d3cuaW5rc2NhcGUub3Jnm+48GgAAAABJRU5ErkJggg==" alt="-"></button>
+      <button onclick="closeApp()"><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAABmJLR0QA/wD/AP+gvaeTAAAACXBIWXMAATr1AAE69QGXCHZXAAABXElEQVRIx+2UP07DMBjFf68Vkt0GJb0N6sLAQRiBVuICiKpF3ABRFkZ6DSbKv0OwM2VAbdMWKQwkVUTiJAuw9E2WHb+fY7/vg63+W0oHvu8jCaAtqQs8Ax9hGJYaBEEAsAvsAY/ATBLpvkbBnm4cxxNgALQ6nU6VeQsYSJpI6iaH3KiZDowx6R+8Ax1JPaANTK216yiKXOZDSX3gFrgDVgDp9xvAcrkkiiKMMWtgmlxVvwhSYH4NDIFZGIZkD9Pkh6ogxhiX+bzovXKACsgDsAOM6pg7AQ5IDwiAA0nHwLjKHDIxrUiKBS4lnSbTV8AZsKiKcYNfVrNsMZOWkaQT4CaO4xdJR4CHI8K1AAVRHAPnwD3guSJcC1CS8wXwSUWdlAJKzOdpEdUpxhzA932stSR3W1pEDogHPFlrV9bafKvI9KJ9SRd895acuQPiSToEXoG3dB3+oF1v9f/6Aqszs3hMXMROAAAAGXRFWHRTb2Z0d2FyZQB3d3cuaW5rc2NhcGUub3Jnm+48GgAAAABJRU5ErkJggg==" alt="x"></button>
+    </div>
+  </div>
+
+  <div class="content">
+    <div class="input">
+      <input type="text" id="taskInput" placeholder="Type your sh*t and enter...">
+      <button onclick="addTask()">Enter</button>
+      <button onclick="clearTasks()">Clear Task</button>
+    </div>
+
+    <div id="taskList"></div>
+
+    <div class="sticky-check">
+      <label for="stickyCheck">
+        <input type="checkbox" id="stickyCheck" onchange="toggleSticky(this)">
+        Sticky (Always on Top)
+      </label>
+    </div>
+  </div>
+
+  <script>
+    const taskInput = document.getElementById('taskInput');
+    const taskList = document.getElementById('taskList');
+
+    function addTask() {
+      const text = taskInput.value.trim();
+      if (!text) return;
+      const div = document.createElement('div');
+      div.className = 'task';
+      div.innerHTML = `
+        <input type="checkbox" onchange="toggleComplete(this)">
+        <span>${text}</span>
+      `;
+      taskList.appendChild(div);
+      taskInput.value = '';
+    }
+
+    function toggleComplete(checkbox) {
+      const span = checkbox.nextElementSibling;
+      if (checkbox.checked) {
+        span.style.textDecoration = 'line-through';
+        span.style.color = '#f44336';
+      } else {
+        span.style.textDecoration = 'none';
+        span.style.color = '#E0E0E0';
+      }
+    }
+
+    function clearTasks() {
+      taskList.innerHTML = '';
+    }
+
+    function toggleSticky(checkbox) {
+      if (window.electronAPI?.setAlwaysOnTop) {
+        window.electronAPI.setAlwaysOnTop(checkbox.checked);
+      }
+    }
+
+    function minimizeApp() {
+      if (window.electronAPI?.minimize) {
+        window.electronAPI.minimize();
+      }
+    }
+
+    function closeApp() {
+      if (window.electronAPI?.close) {
+        window.electronAPI.close();
+      }
+    }
+
+    taskInput.addEventListener('keydown', e => {
+      if (e.key === 'Enter') addTask();
+    });
+  </script>
+</body>
+</html>
