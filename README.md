@@ -16,7 +16,6 @@ A simple, always-on-top desktop to-do list that f\*cks your distractions into su
 - 🌈 **Dark mode UI** — Because we’re not animals.
 - 🖌️ **Cyan-accented theme** — Looks slick. That’s it.
 - 👻 **Dashed separator for each task** — You’ll like it. Trust us.
-- 🔧 **Built with Java Swing** — Old-school, cross-platform, JVM-powered.
 
 ## 🔧 Compile
 
